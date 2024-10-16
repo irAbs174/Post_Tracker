@@ -1,9 +1,10 @@
 #!/bin/bash
 
 clear
-python3 logo.py
+python3 app/frontend/logo.py
 echo "STARTING POST TRACKER SCRIPT ..."
 sleep 1
 
 clear
+python3 app/core/manage.py runserver
 

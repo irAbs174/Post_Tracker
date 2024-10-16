@@ -90,10 +90,18 @@ USE_I18N = True
 
 USE_TZ = True
 
+# static root Dir configuration 
+# STATIC_ROOT = '/var/www/public/kikpick/assets'
+STATICFILES_DIRS = [
+        os.path.join(
+            BASE_DIR, "frontend/assets",
+            )
+        ]
+STATIC_URL = '/assets/'
 
-# Static files (CSS, JavaScript, Images)
-
-STATIC_URL = 'static/'
+# Media root Dir configuration
+# MEDIA_ROOT = 'media'
+# MEDIA_URL = '/media/'
 
 # Default primary key field type
 

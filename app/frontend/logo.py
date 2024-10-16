@@ -22,4 +22,4 @@ class Logo:
 
 
 if __name__ == "__main__":
-    Logo("174.png")
+    Logo("app/frontend/assets/img/174.png")
