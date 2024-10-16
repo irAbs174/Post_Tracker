@@ -101,10 +101,10 @@
 
 @keyframes blink {
     0% {
-        background-color: #ccc;
+        background-color: #58bfdf;
     }
     49% {
-        background-color: #ccc;
+        background-color: #58bfdf;
     }
     50% {
         background-color: transparent;
@@ -113,7 +113,7 @@
         background-color: transparent;
     }
     100% {
-        background-color: #ccc;
+        background-color: #58bfdf;
     }
 }
 
@@ -250,7 +250,7 @@ img {
 }
 
 .bg-main {
-    background-color: var(--mc);
+    background-color: #58bfdf;
 }
 
 .border-main {
@@ -367,7 +367,7 @@ header .navbar {
 }
 
 .bg-light {
-    background-color: #FAFAFA !important;
+    background-color: #b7e0eb !important;
 }
 
 .rounded-4 {
