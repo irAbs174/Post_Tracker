@@ -1,0 +1,9 @@
+#!/bin/bash
+
+clear
+python3 logo.py
+echo "STARTING POST TRACKER SCRIPT ..."
+sleep 1
+
+clear
+
