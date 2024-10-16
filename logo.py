@@ -22,4 +22,4 @@ class Logo:
 
 
 if __name__ == "__main__":
-    Logo("assets/images/logo/174.png")
+    Logo("174.png")
