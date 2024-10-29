@@ -21,6 +21,7 @@ BE HAPPY :)
 #from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver import Chrome
+from core.SEC import media_dir
 from colorama import Fore
 from pathlib import Path
 from time import sleep
@@ -62,7 +63,7 @@ class DriverFunctions:
     def screenshot(self):
         # save page screen shot and store with tracking_code name
         try:
-            self.path = f"{Path.home()}/Pictures/post/{self.tracking_code}.png"
+            self.path = f"{media_dir}/{self.tracking_code}.png"
             self.driver.save_screenshot(self.path)
             
         except Exception as error:
