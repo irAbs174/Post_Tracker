@@ -105,24 +105,26 @@ class DriverFunctions:
             self.screenshot()
             self.title = self.driver.title
             self.url = self.driver.current_url
+            output = f"""\n
+            ------------------------------
+            Page title: {self.title}
+            url : {self.url}
+            Screen shot : Screen shot stored to path :
+                => {self.path}
+            ------------------------------"""
             print(
                 Fore.GREEN,
-                f"""
-                    ------------------------------
-                    Page title: {self.title}
-                    url : {self.url}
-                    Screen shot : Screen shot stored to path :
-                        => {self.path}
-                    ------------------------------
-                """
+                output
             )
         except Exception as error:
             print(
                 Fore.GREEN,
                 f"\n :( Error: \n {error} \n"
                 )
+            output = None
             
         self.quit()
+        return output
         
     def quit(self):
         try:
