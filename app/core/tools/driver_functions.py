@@ -61,22 +61,26 @@ class DriverFunctions:
             )
         
     def screenshot(self):
+        output = None
         # save page screen shot and store with tracking_code name
         try:
-            self.path = f"{media_dir}/{self.tracking_code}.png"
-            self.driver.save_screenshot(self.path)
+            output = self.driver.get_screenshot_as_png()
             
         except Exception as error:
             print(
                 Fore.RED,
                 f"\n :( Error: \n {error} \n"
             )
-        
-    def set_data(self):
+            
+        return output
+
+    def submit_tracking_form(self):
         self.driver.mobile
+        # post index page elements for tracking sended package
         input = self.driver.find_element(By.ID, "txtbSearch")
+        btn = self.drivcer.find_element(By.ID, "btnSearch")
+        # send keys to post index page html input and click button element
         input.send_keys(self.tracking_code)
-        btn = self.driver.find_element(By.ID, "btnSearch")
         btn.click()
         
         
@@ -97,32 +101,27 @@ class DriverFunctions:
             
         
     def run(self):
+        output = {}
+        output['tracking_code'] = self.tracking_code
         try:
             print(
                 Fore.BLUE,
                 f"\n => => Full Detail for {self.address} with code {self.tracking_code}\n"
             )
-            self.set_data()
-            self.screenshot()
-            self.title = self.driver.title
-            self.url = self.driver.current_url
-            output = f"""\n
-            ------------------------------
-            Page title: {self.title}
-            url : {self.url}
-            Screen shot : Screen shot stored to path :
-                => {self.path}
-            ------------------------------"""
+            #Set input data to tracking form and submit
+            self.submit_tracking_form()
+            screen_shot = self.screenshot()
             print(
                 Fore.GREEN,
-                output
+                f"=> Note: Seccessfuly generate image and return for retore! <="
             )
+            output['img'] = screen_shot
+
         except Exception as error:
             print(
                 Fore.GREEN,
                 f"\n :( Error: \n {error} \n"
                 )
-            output = None
             
         self.quit()
         return output
