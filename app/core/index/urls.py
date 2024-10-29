@@ -4,5 +4,7 @@ import index.api as api
 
 urlpatterns = [
     path('', views.index),
-    path('test', api.test),
+    
+    # api url patterns
+    path('take_shot', api.test),
 ]
