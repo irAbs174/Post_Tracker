@@ -2,7 +2,18 @@
 
 clear
 python3 app/frontend/logo.py
+
+media_dir="/home/public/media/post_tracker"
+
+# اضافه کردن فاصله بین ! و [
+if ! [ -d "$media_dir" ]; then
+    echo "Making Directory $media_dir"
+    sudo mkdir -p "$media_dir"  # ایجاد دایرکتوری
+fi
+
 echo "STARTING POST TRACKER SCRIPT ..."
 sleep 1
 
+# اجرای اسکریپت manage.py
 python3 app/core/manage.py runserver
+
