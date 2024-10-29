@@ -14,24 +14,25 @@ nft market: https://getgems.io/unique-nft
 BE HAPPY :)
 '''
 
-from driver_functions import DriverFunctions
+from .driver_functions import DriverFunctions
+# Note: Remove first dot(".") if you want execute as single script
 
 class Tracker:
     def __init__(self, tracking_code):
         self.tracking_code = tracking_code
-        self.run()
         
     def run(self):
         # Use class DriverFunctions for run post tracker detail runner
-        DriverFunctions(
+        output = DriverFunctions(
             "https://tracking.post.ir",
             self.tracking_code
         ).run()
+        return output
         
     
 def main():
     tracking_code = input("\n Enter Tracking code: ")
-    Tracker(tracking_code)
+    Tracker(tracking_code).run()
 
 # Note: uncomment if you want execute as python3 file.py
 '''
