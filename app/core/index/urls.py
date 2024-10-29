@@ -6,5 +6,5 @@ urlpatterns = [
     path('', views.index),
     
     # api url patterns
-    path('take_shot', api.test),
+    path('take_shot', api.store_tracking_screenshot),
 ]
