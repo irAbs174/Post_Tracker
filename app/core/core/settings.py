@@ -102,8 +102,8 @@ STATICFILES_DIRS = [
 STATIC_URL = '/assets/'
 
 # Media root Dir configuration
-# MEDIA_ROOT = 'media'
-# MEDIA_URL = '/media/'
+MEDIA_ROOT = media_dir
+MEDIA_URL = '/media/'
 
 # Default primary key field type
 
