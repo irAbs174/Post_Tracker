@@ -14,7 +14,8 @@ nft market: https://getgems.io/unique-nft
 BE HAPPY :)
 '''
 
-from driver_functions import DriverFunctions
+from .driver_functions import DriverFunctions
+# Note: Remove first dot(".") if you want execute as single script
 
 class Tracker:
     def __init__(self, tracking_code):
