@@ -56,8 +56,7 @@ $(function(){
                             if (order.full_name){
                                 set_order_content(order, order_code)
                             }else{
-                                console.log(order)
-                                sweet_alert('error', order)
+                                sweet_alert('error', 'شماره سفارش معتبر نیست')
                             }
                             loader_power('hide')
                         },
