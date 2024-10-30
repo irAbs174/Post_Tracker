@@ -29,7 +29,7 @@ def track(request):
     else:
         tracking_number = None
     return JsonResponse({
-        'status' : 404,
+        'status' : 200 if success else 500,
         'tracking_number' : tracking_number,
         'success' : success
     })
