@@ -5,9 +5,6 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
 ALLOWED_HOSTS = []
 
 # Application definition
@@ -102,8 +99,8 @@ STATICFILES_DIRS = [
 STATIC_URL = '/assets/'
 
 # Media root Dir configuration
-# MEDIA_ROOT = 'media'
-# MEDIA_URL = '/media/'
+MEDIA_ROOT = media_dir
+MEDIA_URL = '/media/'
 
 # Default primary key field type
 
