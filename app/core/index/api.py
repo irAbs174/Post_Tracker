@@ -3,9 +3,16 @@ from django.core.files.base import ContentFile
 from .tracker_forms import ScreenShotForm
 from .tracker_models import ScreenShot
 from django.http import JsonResponse
+from .report import OrderDetail
 from tools.driver import Driver
 from core.SEC import media_dir
 import os
+
+@csrf_exempt
+def report(request):
+    order_code = request.POST.get('order_code')
+    data = OrderDetail(order_code).get_order()
+    return JsonResponse(data)
 
 @csrf_exempt
 def store_tracking_screenshot(request):
