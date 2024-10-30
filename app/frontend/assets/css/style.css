@@ -46,6 +46,38 @@ body, html {
     display: none;
 }
 
+/* Parent div styling */
+.table-container {
+    display: flex;
+    align-items: center;
+    background-color: #f0f0f0;
+}
+
+/* Table styling */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+}
+
+/* Table borders and text */
+th, td {
+    border: 1px solid #fff;
+    padding: 12px;
+    color: #333;
+}
+
+/* Header styling */
+th {
+    background-color: #2a9bd7;
+    color: white;
+}
+
+/* Row styling */
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
 /* Centered Card Styling */
 .tracking-card {
     background: rgba(255, 255, 255, 0.8);
@@ -61,7 +93,7 @@ body, html {
 /* Header and Footer Styling */
 header h1, footer p {
     margin: 0;
-    font-size: 20px;
+    font-size: 26px;
     font-weight: bold;
     color: #333;
 }
