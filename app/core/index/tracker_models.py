@@ -8,6 +8,12 @@ class ScreenShot(models.Model):
     image = models.ImageField(upload_to='screen_shots/', verbose_name='اسکرین شات', blank=True)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='تاریخ بارگذاری اسکرین شات')
     updated_at = models.DateTimeField(auto_now=True, verbose_name='آخرین به روزرسانی')
+    objects = models.Manager()
+    
+    class Meta:
+        verbose_name = 'اسکرین شات'
+        verbose_name_plural = 'اسکرین شات ها'
+        
     
     def __str__(self):
         return f"=> {self.tracking_number} <="
