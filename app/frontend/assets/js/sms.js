@@ -58,11 +58,22 @@ $(function(){
                     'phone_number':phone_number
                 },
                 success: function(data){
-                    alert(data)
+                    sweet_alert(
+                        'success',
+                        `
+                        سفارش ${order_code}به نام مشتری ${full_name}و با کد رهگیری ${tracking_code}برای شماره تماس ${phone_number}ثبت شد.
+                        `
+                    )
                     loader_power('hide')
                 },
                 error: function(data){
-                    alert(data)
+                    sweet_alert(
+                        'error',
+                        `
+                        خطای غیر منتظره ای رخ داده
+                        لطفا به مدیر سیستم اطلاع رسانی نمایید
+                        `
+                    )
                     loader_power('hide')
                 }
             })
