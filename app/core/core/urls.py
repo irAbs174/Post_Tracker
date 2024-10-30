@@ -7,7 +7,7 @@ from django.urls import (
 )
 
 urlpatterns = [
-    path('unique/', admin.site.urls),
     path('', include('index.urls')),
-    path('upload_code', include('sms.urls'))
+    path('unique/', admin.site.urls),
+    path('upload_code/', include('sms.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

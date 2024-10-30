@@ -1,4 +1,5 @@
 from django.views.decorators.csrf import csrf_exempt
+from django.core.validators import RegexValidator
 from django.core.files.base import ContentFile
 from .tracker_forms import ScreenShotForm
 from .tracker_models import ScreenShot
@@ -14,8 +15,15 @@ import os
 
 @csrf_exempt
 def report(request):
+    validator = RegexValidator(r'^\d{6,8}$', 'Invalid order_code format. Must be 7 to 12 digits.')
     order_code = request.POST.get('order_code')
-    data = OrderDetail(order_code).get_order()
+    if order_code:
+        try:
+            validator(order_code)
+            data = OrderDetail(order_code).get_order()
+        except Exception as e:
+            print(e)
+            data = {}
     return JsonResponse(data)
 
 @csrf_exempt

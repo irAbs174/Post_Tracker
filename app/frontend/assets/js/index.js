@@ -53,11 +53,15 @@ $(function(){
                             'order_code': order_code
                         },
                         success: function(order){
+                            if (order.full_name){
+                                set_order_content(order, order_code)
+                            }else{
+                                sweet_alert('error', 'شماره سفارش معتبر نیست')
+                            }
                             loader_power('hide')
-                            set_order_content(order, order_code)
                         },
                         error: function(data){
-                            console.log(data)
+                            sweet_alert('error', "Error during received report data")
                             loader_power('hide')
                         }
                     })
@@ -101,7 +105,7 @@ $(function(){
                     method: "POST",
                     data: {'order_code':order_code},
                     success: function set_tracking_code(data){
-                        if (data.tracking_number){
+                        if (data.tracking_number ){
                             $('.frame2').append(`
                                 <small>کد رهگیری مرسوله پستی شما:</small>
                                 <strong><b>${data.tracking_number}</strong><hr>
