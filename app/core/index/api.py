@@ -6,6 +6,10 @@ from django.http import JsonResponse
 from .report import OrderDetail
 from tools.driver import Driver
 from core.SEC import media_dir
+from .report_models import (
+    RequestCustomer as RC,
+    OrderCodes as OC
+)
 import os
 
 @csrf_exempt
@@ -13,6 +17,22 @@ def report(request):
     order_code = request.POST.get('order_code')
     data = OrderDetail(order_code).get_order()
     return JsonResponse(data)
+
+@csrf_exempt
+def track(request):
+    order_code = request.POST.get('order_code')
+    oc = OC.objects.filter(orders_number=order_code)
+    success = False
+    if oc.exists():
+        tracking_number = oc.first().tracking_number
+        success = True
+    else:
+        tracking_number = None
+    return JsonResponse({
+        'status' : 404,
+        'tracking_number' : tracking_number,
+        'success' : success
+    })
 
 @csrf_exempt
 def store_tracking_screenshot(request):
