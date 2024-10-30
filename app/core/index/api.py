@@ -1,10 +1,11 @@
-from tools.driver_functions import DriverFunctions as DF
 from django.views.decorators.csrf import csrf_exempt
 from django.core.files.base import ContentFile
-from core.SEC import tracking_url as portal
 from .tracker_forms import ScreenShotForm
 from .tracker_models import ScreenShot
 from django.http import JsonResponse
+from tools.driver import Driver
+from core.SEC import media_dir
+import os
 
 @csrf_exempt
 def store_tracking_screenshot(request):
@@ -15,7 +16,7 @@ def store_tracking_screenshot(request):
             # Send tracking variables as arg => tools dir
             tracking_code = request.POST.get('tracking_code')
             # Prepare required PNG image screen shot
-            res = DF(portal, tracking_code).run()
+            res = Driver(tracking_code).run()
             screen_shot = ContentFile(res['img'], name=f"{tracking_code}.png")
             
             # Define variable form_data for sort returned data
@@ -28,6 +29,26 @@ def store_tracking_screenshot(request):
             
             # Initialize the form with the data
             form = ScreenShotForm(data=form_data)
+            
+            # Define image required variables => (storage path as img_path & image file name as img_name)
+            img_name = screen_shot.name
+            img_path = f"{media_dir}/screen_shots/{img_name}"
+            
+            # Define a remove file function
+            def rm_img(confirm):
+                if confirm:
+                    os.remove(img_path)
+                    print(
+                        f"\n=> Removed exist file from media directory\n => File name : {img_name}"
+                        )
+                    
+                else:
+                    print(
+                        f"\n=> Stored new image file to media directory\n > File name : {img_name}"
+                        )
+                
+            # Check for remove older image if exist
+            rm_img(1) if os.path.isfile(img_path) else rm_img(0)
             
             # Store returned data with django form
             screenshot_instance = form.save(commit=False)
