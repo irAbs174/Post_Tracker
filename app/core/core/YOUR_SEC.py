@@ -12,3 +12,14 @@ tracking_url = "https://post.gov"
 
 # Media forlder path configure
 media_dir = "/home/public/media/post_tracker"
+
+# Sms api key configure
+SMS_API = 'YOUR_SEC_KEY'
+
+# Woocommerce api key configure
+WC_API = API(
+    url="YOUR_SEC_KEY",
+    consumer_key="YOUR_SEC_KEY",
+    consumer_secret="YOUR_SEC_KEY",
+    version="wc/v3"
+)
