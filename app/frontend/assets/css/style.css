@@ -10,7 +10,6 @@ body, html {
     margin: 0;
     animation: backgroundAnimation 8s ease infinite;
     background-size: 200% 200%;
-    padding: 10px;
     background-color: #dff1f5;
 }
 
@@ -84,8 +83,7 @@ tr:nth-child(even) {
     border-radius: 12px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    max-width: 400px;
-    width: 100%;
+    width: 98%;
     text-align: center;
     color: #333;
 }
@@ -93,7 +91,7 @@ tr:nth-child(even) {
 /* Header and Footer Styling */
 header h1, footer p {
     margin: 0;
-    font-size: 26px;
+    font-size: 23px;
     font-weight: bold;
     color: #333;
 }
@@ -124,7 +122,7 @@ footer p {
 .frame2 {
     background-color: #f4f5f9;
     border-radius: 15px;
-    padding: 20px;
+    padding: 14px;
 }
 
 /* Order Number Input */
