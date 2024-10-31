@@ -157,4 +157,6 @@ cython_debug/
 # Security configure
 SEC.py
 
-migratioons
+app/frontend/package-lock.json
+app/frontend/package.json
+app/frontend/node_modules/
