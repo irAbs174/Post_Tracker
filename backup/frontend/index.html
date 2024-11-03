@@ -1,0 +1,40 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+{% block BODY %}
+    <!-- Centered Card Container -->
+    <div class="tracking-card hidden">
+        <!-- Header -->
+        <header>
+            <h1>به سادگی یک دو سه</h1>
+        </header>
+
+        <!-- Frame 1 -->
+        <div class="container d-flex justify-content-center mt-3">
+            <a href="https://123kif.com" target="_blank"> <img src="https://123kif.com/wp-content/uploads/2020/07/123-logo-1.webp" alt="123KIF Icon" width="200" height="auto" class="img-icon"></a>
+        </div>
+
+        <!-- Frame 2 -->
+        <div class="frame2">
+            <p><strong>شماره سفارش:</strong></p>
+            <input class="order-input" placeholder="کد سفارش معمولا با ۳۰ شروع میشود">
+            <button id="btnShow" type="submit" class="btn-show">نشون بده</button>
+            {% if user.is_authenticated %}
+            <button class="send-codes-panel" style="width: 100%;">پنل مدیریت</button>
+            {% else %}
+            <input type="hidden" class="send-codes-panel">
+            <input type="hidden" class="btn-send-code">
+            {% endif %}
+        </div>
+
+        <!-- Footer -->
+        <footer class="mt-3">
+            <p>تمامی حقوق برای <a href="https://123kif.com" target="_blank">یک دو سه کیف</a> محفوظ است © 2024</p>
+        </footer>
+    </div>
+
+    {% block JS %}
+    
+    <script src="assets/js/index.js"></script>
+    {% endblock JS %}
+    
+{% endblock BODY %}
